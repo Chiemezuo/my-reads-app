@@ -3,12 +3,13 @@ import BookShelf from './BookShelf'
 
 class BookShelfCollection extends Component{
 	render(){
+		const { bookShelves } = this.props;
 		return(
 			<div className="list-books-content">
         <div>
-					<BookShelf/>
-          <BookShelf/>
-          <BookShelf/>
+					{bookShelves.map((shelf) => (
+		  		<BookShelf key={shelf.shelveKey} name={shelf.shelveName}/>)
+					)}
         </div>
       </div>
 		)

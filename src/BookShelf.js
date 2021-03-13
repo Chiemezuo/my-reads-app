@@ -3,9 +3,10 @@ import Book from './Book'
 
 class BookShelf extends Component{
 	render(){
+    const { name } = this.props;
 		return(
 			<div className="bookshelf">
-          <h2 className="bookshelf-title">Currently Reading</h2>
+          <h2 className="bookshelf-title">{name}</h2>
           <div className="bookshelf-books">
           <ol className="books-grid">
            <li>

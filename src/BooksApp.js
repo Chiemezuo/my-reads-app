@@ -28,6 +28,9 @@ class BooksApp extends Component{
 	//it's time to prepare the BookShelfChanger to be able to change shelves
 	//I need two variables: the book to move, and the shelf for the book to be moved to
 	changeShelf = (book, shelf) => {
+		//update the API
+		BooksAPI.update(book, shelf);
+		
     //this returns the exact same state as before, but with the shelf of the book passed in, modified to the shelf also passed in 
 		const updatedBooks = this.state.books.map(b => {
       if (b.id === book.id) {

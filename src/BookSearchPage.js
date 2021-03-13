@@ -5,7 +5,7 @@ import BookSearchResults from './BookSearchResults'
 
 class BookSearchPage extends Component{
 	render(){
-		const { books } = this.props;
+		const { books, onMove } = this.props;
 
 		return (
 			<div className="search-books">
@@ -13,7 +13,7 @@ class BookSearchPage extends Component{
 					<CloseSearchPage/>
           <SearchBox/>
         </div>
-        <BookSearchResults books={books}/>
+        <BookSearchResults books={books} onMove={onMove}/>
       </div>
 		)
 	}

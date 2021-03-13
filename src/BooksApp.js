@@ -3,7 +3,7 @@ import BookListPage from './BookListPage'
 import BookSearchPage from './BookSearchPage'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import getAllBooks from './DummyData'
+import getAllBooks from './DummyData' //No longer needed at this point
 
 class BooksApp extends Component{
 	shelves = [
@@ -13,8 +13,16 @@ class BooksApp extends Component{
 	]
 
 	state = { 
-		books: getAllBooks
-		
+		books: []
+	}
+
+	//Because asynchronous calls should not be run on the render, I will use an activity lifecycle method to get the API data
+	componentDidMount = () => {
+		BooksAPI.getAll().then(books => (
+			this.setState(() => ({
+				books: books
+			}))
+		))
 	}
 
 	//it's time to prepare the BookShelfChanger to be able to change shelves

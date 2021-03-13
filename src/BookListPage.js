@@ -8,14 +8,14 @@ import OpenSearch from './OpenSearch'
 
 class BookListPage extends Component{
 	render(){
-		const { shelves } = this.props;
+		const { shelves, books } = this.props;
 
 		return (
 			<div className="list-books">
 				<div className="list-books-title">
           <h1>MyReads</h1>
         </div>
-				<BookShelfCollection bookShelves={shelves}/>
+				<BookShelfCollection bookShelves={shelves} books={books}/>
 				<OpenSearch/>
 			</div>
 		)

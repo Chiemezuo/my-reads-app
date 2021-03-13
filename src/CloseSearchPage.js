@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class CloseSearchPage extends Component{
 	render(){
 		return (
-			<button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+			<Link to="/">
+				<button className="close-search">Close</button>
+			</Link>
 		)
 	}
 }

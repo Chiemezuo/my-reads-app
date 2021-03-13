@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import BookListPage from './BookListPage'
 import BookSearchPage from './BookSearchPage'
+import { Route } from 'react-router-dom'
 
 class BooksApp extends Component{
 	state = {
-		showSearchPage: false
 	}
 
   render(){
 		return(
 			<div className="app">
-				{this.state.showSearchPage ? (<BookSearchPage/>) : (<BookListPage/>)}
+				<Route exact path="/" component={BookListPage}/>
+				<Route exact path="/search" component={BookSearchPage}/>
 			</div>
 		)
   }

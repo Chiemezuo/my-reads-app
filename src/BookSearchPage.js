@@ -5,13 +5,15 @@ import BookSearchResults from './BookSearchResults'
 
 class BookSearchPage extends Component{
 	render(){
+		const { books } = this.props;
+
 		return (
 			<div className="search-books">
         <div className="search-books-bar">
 					<CloseSearchPage/>
           <SearchBox/>
         </div>
-        <BookSearchResults/>
+        <BookSearchResults books={books}/>
       </div>
 		)
 	}

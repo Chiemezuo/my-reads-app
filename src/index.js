@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import App2 from './App2'
+import BooksApp from './BooksApp'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render( <BrowserRouter> 
-                    <App2/> 
+                    <BooksApp/> 
                     </BrowserRouter>,
                 document.getElementById('root'))

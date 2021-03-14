@@ -18,12 +18,12 @@ class BooksApp extends Component{
 
 	//Because asynchronous calls should not be run on the render, I will use an activity lifecycle method to get the API data
 	componentDidMount = () => {
-		BooksAPI.getAll().then(books => (
-			this.setState(() => ({
-				books: books
-			}))
-		))
-	}
+	 	BooksAPI.getAll().then(books => (
+	 		this.setState(() => ({
+	 			books: books
+	 		}))
+	 	))
+	 }
 
 	//it's time to prepare the BookShelfChanger to be able to change shelves
 	//I need two variables: the book to move, and the shelf for the book to be moved to
@@ -40,9 +40,9 @@ class BooksApp extends Component{
     });
 
 		//this changes the state to reflect the shift in shelf, which is also reflected in the search page
-    this.setState({
+    this.setState(currentState => ({
       books: updatedBooks,
-    });
+    }))
   };
 
   render(){

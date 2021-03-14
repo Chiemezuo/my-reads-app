@@ -4,13 +4,10 @@ class BookShelfChanger extends Component{
   state = {
     value: this.props.shelf
   }
-  handleMove = (e => {
-    this.setState({
-        value: e.target.value
-      }
-    )
+  handleMove = e => {
+    this.setState({value: e.target.value});
     this.props.onMove(this.props.book, e.target.value)
-  })
+  }
 	render(){
 		return(
 			<div className="book-shelf-changer">

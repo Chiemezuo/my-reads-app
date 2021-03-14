@@ -13,9 +13,29 @@ class BooksApp extends Component{
 	]
 
 	state = { 
-		books: []
+		books: [],
+		searchBooks: []
 	}
 
+	//We will have to try and hold search results for the search section of the app here
+	bookSearch = query => {
+		if (query.length > 0){
+			BooksAPI.search(query).then(books => {
+				if (books.error){
+					this.setState({searchBooks: []})
+				} else {
+					this.setState({searchBooks: books})
+				}
+			})	
+		} else {
+			this.setState({searchBooks: []})
+		}
+	}
+
+	//we will also need to respond to the close search button which should reset the search
+	resetSearch = () => {
+		this.setState({searchBooks: []})
+	}
 	//Because asynchronous calls should not be run on the render, I will use an activity lifecycle method to get the API data
 	componentDidMount = () => {
 	 	BooksAPI.getAll().then(books => (
@@ -31,17 +51,19 @@ class BooksApp extends Component{
 		//update the API
 		BooksAPI.update(book, shelf);
 		
-    //this returns the exact same state as before, but with the shelf of the book passed in, modified to the shelf also passed in 
-		const updatedBooks = this.state.books.map(b => {
-      if (b.id === book.id) {
-        b.shelf = shelf;
-      }
-      return b;
-    });
+		//remove the particular book in the book state that matches the one passed in the change shelf 
+		let modifiedBooks = []; 
+		modifiedBooks = this.state.books.filter(b => b.id !== book.id);
+
+		//if the book that was removed wasn't passed a shelf of "none", add it back to the modified books (pushing it to the back)
+		if (shelf !== "none"){
+			book.shelf = shelf;
+			modifiedBooks = modifiedBooks.concat(book)
+		}
 
 		//this changes the state to reflect the shift in shelf, which is also reflected in the search page
-    this.setState(currentState => ({
-      books: updatedBooks,
+    this.setState(() => ({
+      books: modifiedBooks,
     }))
   };
 
@@ -49,7 +71,13 @@ class BooksApp extends Component{
 		return(
 			<div className="app">
 				<Route exact path="/" render={() => <BookListPage shelves={this.shelves} books={this.state.books} onMove={this.changeShelf}/>}/>
-				<Route exact path="/search" render={ () => <BookSearchPage books={this.state.books} onMove={this.changeShelf}/> }/>
+				<Route exact path="/search" render={ () => 
+					<BookSearchPage 
+						books={this.state.searchBooks}
+						myBooks={this.state.books} 
+						onMove={this.changeShelf}
+						onReset={this.resetSearch}
+						onSearch={this.bookSearch}/> }/>
 			</div>
 		)
   }

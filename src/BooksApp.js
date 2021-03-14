@@ -3,10 +3,6 @@ import BookListPage from './BookListPage'
 import BookSearchPage from './BookSearchPage'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import getAllBooks from './DummyData' //No longer needed at this point
-//I wanted to add proptypes, then I realized that it wasn't needed because the user doesn't add anything to the database
-//Left this here as a reminder of why I didn't add proptypes
-import PropTypes from 'prop-types' 
 
 class BooksApp extends Component{
 	shelves = [

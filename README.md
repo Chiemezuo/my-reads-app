@@ -1,39 +1,23 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is a book organizing app from an assessment of the first project in the [Udacity React Developer Course](https://www.udacity.com/course/react-nanodegree--nd019?).
+The homepage has three shelves that you can use to organize books from a search into categories based on what you are reading, have read, or want to read.
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+## Requirement
+* You will need [Node.js](https://nodejs.org/en/download/) installed on your computer
 
-## TL;DR
+## Installation
 
 To get started developing right away:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-## What You're Getting
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
-```
+## Usage
+To use the App, you click on the circle on any of the books there and click on whichever category you want to put it to. The books are not limited to what you see on the homepage. To get more, you click on the search icon at the bottom right corner of the screen and type in the search box. The searches are limited to a list of search terms in an array which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md)
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+## Modifications
+If you want to modify the app to show books that you want, or books from an entirely different source other than the one from my backend server, you can change the API in the [`BooksAPI.js`](src/BooksAPI.js) file to the one from your provider. **However, if you must do this, make sure the JSON file returned is of a similar format as the one in the [`DummyData.js`](src/DummyData.js) file.**
 
 ## Backend Server
 
@@ -90,3 +74,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+MIT License
+
+Copyright (c) 2021 Chiemezuo Akujobi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
